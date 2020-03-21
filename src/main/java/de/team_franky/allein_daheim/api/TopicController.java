@@ -18,12 +18,15 @@ public class TopicController {
     @Autowired
     private TopicService topicService;
 
+
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping(value = "/{id}")
     public Topic findOne(@PathVariable Long id) {
         return topicService.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping(value = "")
     public Collection<Topic> findAll() {
         Iterable<Topic> topics = topicService.findAll();
