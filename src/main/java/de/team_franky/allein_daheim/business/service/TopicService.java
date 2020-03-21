@@ -9,12 +9,9 @@ import java.util.Optional;
 
 @Service
 public class TopicService {
-    private TopicRepository topicRepository;
 
     @Autowired
-    public TopicService(TopicRepository topicRepository) {
-        this.topicRepository = topicRepository;
-    }
+    private TopicRepository topicRepository;
 
     public Optional<Topic> findById(Long id) {
         return topicRepository.findById(id);
@@ -23,4 +20,5 @@ public class TopicService {
     public Iterable<Topic> findAll() {
         return topicRepository.findAll();
     }
+
 }

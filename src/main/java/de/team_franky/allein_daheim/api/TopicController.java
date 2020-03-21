@@ -18,13 +18,13 @@ public class TopicController {
     @Autowired
     private TopicService topicService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    @GetMapping(value = "/{id}")
     public Topic findOne(@PathVariable Long id) {
         return topicService.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "")
+    @GetMapping(value = "")
     public Collection<Topic> findAll() {
         Iterable<Topic> topics = topicService.findAll();
         List<Topic> topicList = new ArrayList<>();
