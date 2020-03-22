@@ -81,7 +81,7 @@ Die aktuelle Version des Backends besitzt folgende Features:
             "userId": "<userId>",
             "topicId": "<topicId>"
         },
-        "expires": "<expiresTimestamp in format dd.MM.yyyy HH:mm:ss.SSSZ>"
+        "expires": "<expiresTimestamp in format dd.MM.yyyy HH:mm:ssZ>"
     }
     ```
 

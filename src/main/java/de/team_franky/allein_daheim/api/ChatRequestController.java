@@ -30,6 +30,7 @@ public class ChatRequestController {
     @Autowired
     private TopicService topicService;
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @PostMapping(value = "")
     public ChatRequest save(@RequestBody ChatRequestKey chatRequestKey) {
         User user = userService.findById(chatRequestKey.getUserId())
@@ -41,6 +42,7 @@ public class ChatRequestController {
         return chatRequestService.save(new ChatRequest(user, topic));
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @DeleteMapping(value = "")
     public void deleteChatRequestsByUser(@RequestParam(value = "user") Long userId) {
         User user = userService.findById(userId)
@@ -49,6 +51,7 @@ public class ChatRequestController {
         chatRequestService.deleteAll(chatRequestService.findByUser(user));
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping(value = "")
     public ChatRequest findMatch(@RequestParam(value = "user") Long userId) {
         List<Topic> userTopics = new ArrayList<>();

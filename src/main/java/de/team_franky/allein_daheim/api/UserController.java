@@ -4,11 +4,9 @@ import de.team_franky.allein_daheim.business.service.UserService;
 import de.team_franky.allein_daheim.data.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.websocket.server.PathParam;
 import java.util.Date;
 
 @RestController
@@ -30,7 +28,7 @@ public class UserController {
     public User updateLastSeen(@PathVariable Long id) {
         return userService.findById(id)
                 .map(user -> {
-                    user.setLastSeen(new java.sql.Date(new Date().getTime()));
+                    user.setLastSeen(new java.sql.Timestamp(new Date().getTime()));
                     return userService.save(user);
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
