@@ -12,14 +12,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "/api/chat-request")
 public class ChatRequestController {
+
+    private static final int REQUEST_EXPIRES_MILLIS = 10000;
 
     @Autowired
     private ChatRequestService chatRequestService;
@@ -76,10 +75,14 @@ public class ChatRequestController {
         if (matchCandidates == null) {
              return null;
         }
-        Date now = new Date();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MILLISECOND, -REQUEST_EXPIRES_MILLIS);
+
         List<ChatRequest> matchCandidatesList = new ArrayList<>();
         matchCandidates.forEach(chatRequest -> {
-            if (chatRequest.getExpires().after(now)) {
+            if (chatRequest.getCreatedAt().after(calendar.getTime())) {
                 matchCandidatesList.add(chatRequest);
             } else {
                 chatRequestService.delete(chatRequest);

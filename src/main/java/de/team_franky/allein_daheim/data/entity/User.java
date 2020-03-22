@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "USER")
+@Embeddable
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,7 +17,7 @@ public class User {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "LAST_SEEN")
+    @Column(name = "LAST_SEEN_AT")
     private Timestamp lastSeen;
 
     public Long getId() {

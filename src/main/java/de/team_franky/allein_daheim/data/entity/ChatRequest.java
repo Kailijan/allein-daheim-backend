@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import de.team_franky.allein_daheim.data.entity.embeddable.ChatRequestKey;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Table(name = "CHAT_REQUEST")
@@ -14,8 +14,8 @@ public class ChatRequest {
     @EmbeddedId
     private ChatRequestKey chatRequestKey;
 
-    @Column(name = "EXPIRES")
-    private Timestamp expires;
+    @Column(name = "CREATED_AT")
+    private Timestamp createdAt;
 
     public ChatRequest() {
         this.chatRequestKey = null;
@@ -28,9 +28,7 @@ public class ChatRequest {
     }
 
     private void setExpires() {
-        long timeoutSpan = 1000 * 20;
-        java.util.Date now = new java.util.Date();
-        this.expires = new Timestamp(now.getTime() + timeoutSpan);
+        this.createdAt = new Timestamp(new Date().getTime());
     }
 
     public ChatRequestKey getChatRequestKey() {
@@ -38,8 +36,8 @@ public class ChatRequest {
     }
 
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd.MM.yyyy HH:mm:ssZ")
-    public Timestamp getExpires() {
-        return expires;
+    public Timestamp getCreatedAt() {
+        return createdAt;
     }
 }
 
