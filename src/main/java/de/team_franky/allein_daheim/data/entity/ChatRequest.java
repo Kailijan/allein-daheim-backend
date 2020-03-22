@@ -36,7 +36,7 @@ public class ChatRequest {
         return chatRequestKey;
     }
 
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd.MM.yyyy H:m:s")
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd.MM.yyyy HH:mm:ssZ")
     public Date getExpires() {
         return expires;
     }

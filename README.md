@@ -47,7 +47,7 @@ Die aktuelle Version des Backends besitzt folgende Features:
     {
         "id": 1,
         "name": "Hans Günther",
-        "lastSeen": "<null or timestamp in format format dd.MM.yyyy H:m:s>"
+        "lastSeen": "<null or timestamp in format format dd.MM.yyyy HH:mm:ssZ>"
     }
     ```
     
@@ -58,7 +58,7 @@ Die aktuelle Version des Backends besitzt folgende Features:
     {
         "id": 1,
         "name": "Hans Günther",
-        "lastSeen": "22.03.2020 10:40:31"
+        "lastSeen": "22.03.2020 10:40:31+0000"
     }
     ```
 
@@ -81,7 +81,7 @@ Die aktuelle Version des Backends besitzt folgende Features:
             "userId": "<userId>",
             "topicId": "<topicId>"
         },
-        "expires": "<expiresTimestamp in format dd.MM.yyyy H:m:s>"
+        "expires": "<expiresTimestamp in format dd.MM.yyyy HH:mm:ss.SSSZ>"
     }
     ```
 
@@ -95,7 +95,7 @@ Die aktuelle Version des Backends besitzt folgende Features:
             "userId": 3,
             "topicId": 1
         },
-        "expires": "22.03.2020 23:0:0"
+        "expires": "22.03.2020 23:00:00+0000"
     }
     ```
 
