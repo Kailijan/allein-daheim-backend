@@ -18,12 +18,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping(value = "/{id}")
     public User findOne(@PathVariable Long id) {
         return userService.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @PostMapping(value = "/{id}/seen")
     public User updateLastSeen(@PathVariable Long id) {
         return userService.findById(id)
