@@ -71,7 +71,7 @@ public class ChatRequestControllerTest {
 
         given(chatRequestService.findByUser(user1)).willReturn(ownRequests);
         given(chatRequestService.findByTopics(userTopics, user1)).willReturn(chatRequests);
-        ResultActions resultActions = this.mockMvc.perform(get("/api/chat-request/match?user=" + user1.getId()));
+        ResultActions resultActions = this.mockMvc.perform(get("/api/chat-request?user=" + user1.getId()));
         resultActions.andExpect(status().isOk())
                 .andExpect(content().string(containsString("\"userId\":" + user2.getId())));
     }
