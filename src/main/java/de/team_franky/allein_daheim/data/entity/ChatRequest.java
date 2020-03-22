@@ -5,6 +5,7 @@ import de.team_franky.allein_daheim.data.entity.embeddable.ChatRequestKey;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "CHAT_REQUEST")
@@ -14,7 +15,7 @@ public class ChatRequest {
     private ChatRequestKey chatRequestKey;
 
     @Column(name = "EXPIRES")
-    private Date expires;
+    private Timestamp expires;
 
     public ChatRequest() {
         this.chatRequestKey = null;
@@ -29,15 +30,15 @@ public class ChatRequest {
     private void setExpires() {
         long timeoutSpan = 1000 * 20;
         java.util.Date now = new java.util.Date();
-        this.expires = new Date(now.getTime() + timeoutSpan);
+        this.expires = new Timestamp(now.getTime() + timeoutSpan);
     }
 
     public ChatRequestKey getChatRequestKey() {
         return chatRequestKey;
     }
 
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd.MM.yyyy H:m:s")
-    public Date getExpires() {
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd.MM.yyyy HH:mm:ssZ")
+    public Timestamp getExpires() {
         return expires;
     }
 }

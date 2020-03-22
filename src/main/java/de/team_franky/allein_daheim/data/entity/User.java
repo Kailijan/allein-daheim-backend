@@ -3,7 +3,7 @@ package de.team_franky.allein_daheim.data.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "USER")
@@ -17,7 +17,7 @@ public class User {
     private String name;
 
     @Column(name = "LAST_SEEN")
-    private Date lastSeen;
+    private Timestamp lastSeen;
 
     public Long getId() {
         return id;
@@ -35,12 +35,12 @@ public class User {
         this.name = name;
     }
 
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd.MM.yyyy H:m:s")
-    public Date getLastSeen() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy HH:mm:ssZ")
+    public Timestamp getLastSeen() {
         return lastSeen;
     }
 
-    public void setLastSeen(Date lastSeen) {
+    public void setLastSeen(Timestamp lastSeen) {
         this.lastSeen = lastSeen;
     }
 }
