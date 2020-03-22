@@ -49,7 +49,7 @@ public class ChatRequestController {
         chatRequestService.deleteAll(chatRequestService.findByUser(user));
     }
 
-    @GetMapping(value = "/match")
+    @GetMapping(value = "")
     public ChatRequest findMatch(@RequestParam(value = "user") Long userId) {
         List<Topic> userTopics = new ArrayList<>();
 
