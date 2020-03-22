@@ -47,7 +47,7 @@ Die aktuelle Version des Backends besitzt folgende Features:
     {
         "id": 1,
         "name": "Hans Günther",
-        "lastSeen": <null or timestamp in format format dd.MM.yyyy H:m:s>
+        "lastSeen": "<null or timestamp in format format dd.MM.yyyy H:m:s>"
     }
     ```
     
@@ -69,8 +69,8 @@ Die aktuelle Version des Backends besitzt folgende Features:
     Body:
     ```json
     {
-      "userId": <userId>,
-      "topicId": <topicId>
+      "userId": "<userId>",
+      "topicId": "<topicId>"
     }
     ```
     
@@ -78,8 +78,8 @@ Die aktuelle Version des Backends besitzt folgende Features:
     ```json
     {
         "chatRequestKey": {
-            "userId": <userId>,
-            "topicId": <topicId>
+            "userId": "<userId>",
+            "topicId": "<topicId>"
         },
         "expires": "<expiresTimestamp in format dd.MM.yyyy H:m:s>"
     }
